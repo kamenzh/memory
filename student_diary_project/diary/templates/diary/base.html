@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Diary</title>
+</head>
+<body>
+    <header>
+        <h1>Student Diary</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}">Home</a> |
+                <a href="{% url 'grades' %}">Grades</a> |
+                <a href="{% url 'add_grade' %}">Add Grade</a> |
+                <a href="{% url 'absences' %}">Absences</a> |
+                <a href="{% url 'add_absence' %}">Add Absence</a> |
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a> |
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+        <hr>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <hr>
+        <p>&copy; 2025 Student Diary</p>
+    </footer>
+</body>
+</html>
