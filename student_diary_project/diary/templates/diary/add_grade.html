@@ -1,10 +1,14 @@
 {% extends 'diary/base.html' %}
 
 {% block content %}
-<h2>Add Grade</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Grade</button>
-</form>
+<h2>➕ Add New Grade</h2>
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit">💾 Save Grade</button>
+    </form>
+</div>
 {% endblock %}
